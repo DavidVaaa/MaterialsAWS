@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introducción al Proyecto</title>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="toggle-button">
+          <div class="toggle-icon"></div>
+          <div class="toggle-name">Introducción</div>
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="introduccion.html">Introducción</a></li>
+          <li><a href="teorico.html">Marco Teórico</a></li>
+          <li><a href="analisis.html">Análisis</a></li>
+          <li><a href="solucion.html">Solución</a></li>
+        </ul>
+      </nav>
+  <div class="content">
+    <header>
+      <h1>Introducción al Proyecto</h1>
+    </header>
+
+    <section>
+      <h2>Motivación</h2>
+      <p>Motivados por la entrega del trabajo final de curso de la materia Introducción a computación en la nube con AWS, se presentó al grupo un data set con metales y sus diferentes propiedades físicas y mecánicas, con el fin de resolver un problema aplicando las herramientas brindadas por los docentes del curso.</p>
+    </section>
+
+    <section>
+      <h2>Data Set</h2>
+      <p>Dentro del data set se cuenta con valores de Identificación, resistencia a la tracción, resistencia de fluencia, módulo de Young, módulo de corte, coeficiente de Poisson y densidad.</p>
+      <p>Esta información es muy valiosa a la hora de seleccionar materiales para el diseño de máquinas y estructuras, ya que se debe asegurar que cumpla su función sin dañarse y optimizando recursos como peso y costo.</p>
+    </section>
+
+    <section>
+      <h2>Desarrollo de la API</h2>
+      <p>Para facilitar el proceso de selección del mejor metal para la aplicación deseada por el usuario, se desarrolló una API que con los inputs correspondientes al tipo de proyecto deseado devuelve una lista con los 10 mejores metales para esa aplicación.</p>
+      <p>Nuestros inputs serán rangos de E, rangos de Rho, y la API se encarga de devolver una lista con los 10 metales en esos rangos optimizando la relación de tensión de fluencia (Sy) sobre la tensión de ruptura (A5), con el criterio de que cuanto más cercano a 1 sea dicho índice, peor va a ser el material para la aplicación deseada en este caso, ya que queremos que la tensión de ruptura esté lo más lejos posible del límite elástico.</p>
+    </section>
+
+    <section>
+      <h2>Explicación del Índice Sy/A5</h2>
+      <p>Los valores que en el data set están denominados por Sy, Su y A5 son los correspondientes a los puntos B, D y E respectivamente.</p>
+      <p>La idea de minimizar el índice Sy/A5 hace referencia a la relación de esfuerzos para llegar a la ruptura del material sobre el esfuerzo con el que el material abandona la zona plástica. Dicho índice, cuanto menor sea, mayor va a ser el esfuerzo para llegar a la ruptura luego de pasar el límite elástico, por lo que el material será más difícil de romper.</p>
+    </section>
+  </div>
+</body>
+</html>
+

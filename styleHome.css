@@ -1,0 +1,160 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos del encabezado */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_um {
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  filter: invert(1); /* Invierte el color del logo para que sea visible en el fondo oscuro */
+}
+
+.logo_mlabs {
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  font-size: 60px;
+  color: darkblue;
+}
+
+h2 {
+  font-family: Geneva, Tahoma, sans-serif;
+  text-align: center;
+  font-size: 40px;
+  color: rgb(69, 150, 193);
+}
+
+h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  font-size: 25px;
+  color: slategray;
+}
+
+/* Estilos del contenido principal */
+.introduction-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 200px; /* Agrega un margen izquierdo para evitar superposición con la barra de navegación */
+}
+
+ol {
+  margin-left: 20px;
+}
+
+.all-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.member {
+  border: 1px solid gray;
+  border-radius: 16px;
+  text-align: center;
+  margin: 30px;
+  padding: 10px;
+  box-shadow: 0 3px 40px gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member img {
+  width: 200px;
+  margin: 5px;
+  margin-left: 15px;
+}
+
+.member h4 {
+  font-size: 40px;
+  margin-block-start: 48px;
+  margin-block-end: 45px;
+  font-weight: bold;
+} 
+
+.member p {
+  font-size: 15px;
+  color: gray;
+  margin-block-start: 15px;
+  margin-block-end: 15px;
+}
+
+/* Navegation Bar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+}
+
+.toggle-button {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-icon {
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+}
+
+.toggle-name {
+  display: block;
+  margin-top: 5px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.menu li {
+  padding: 10px 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  padding-left: 10px;
+}
+
+.content {
+  margin-left: 200px;
+  padding: 20px;
+}
