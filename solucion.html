@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Solución</title>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="toggle-button">
+          <div class="toggle-icon"></div>
+          <div class="toggle-name">Solución</div>
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="introduccion.html">Introducción</a></li>
+          <li><a href="teorico.html">Marco Teórico</a></li>
+          <li><a href="analisis.html">Análisis</a></li>
+          <li><a href="solucion.html">Solución</a></li>
+        </ul>
+      </nav>
+  <div class="content">
+    <header>
+      <h1>Solución</h1>
+    </header>
+
+    <section>
+      <h2>Ingrese los rangos de valores de E y Ro:</h2>
+      <form id="rangeForm">
+        <label for="rangeE">Rango de E:</label>
+        <input type="number" id="minE" name="minE" placeholder="Valor mínimo de E" required>
+        <input type="number" id="maxE" name="maxE" placeholder="Valor máximo de E" required>
+        <br>
+        <label for="rangeRo">Rango de Ro:</label>
+        <input type="number" id="minRo" name="minRo" placeholder="Valor mínimo de Ro" required>
+        <input type="number" id="maxRo" name="maxRo" placeholder="Valor máximo de Ro" required>
+        <br>
+        <button type="submit">Buscar Materiales</button>
+      </form>
+    </section>
+
+    <section id="resultSection" style="display: none;">
+      <h2>Resultados:</h2>
+      <div id="materialList"></div>
+    </section>
+
+    <script src="./script.js"></script>
+  </div>
+</body>
+</html>
