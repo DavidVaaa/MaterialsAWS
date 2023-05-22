@@ -11,7 +11,7 @@ document.getElementById("rangeForm").addEventListener("submit", function(event) 
     "Ro": [minRo, maxRo]
   };
   
-  fetch("https://xvbacbx0ad.execute-api.us-east-1.amazonaws.com/stagind", {
+  fetch("https://9k6r2zo8t9.execute-api.us-east-1.amazonaws.com	", {
     method: "POST",
     body: JSON.stringify(request)
   })
@@ -50,81 +50,3 @@ function displayResults(data) {
     document.getElementById("resultSection").style.display = "block";
   }
 }
-
-// Código JavaScript para generar los gráficos
-
-// Función para cargar los datos del archivo CSV
-function cargarDatosCSV(url) {
-  return fetch(url)
-    .then(response => response.text())
-    .then(data => Papa.parse(data, { header: true }).data);
-}
-
-// Función para generar el histograma
-function generarHistograma(idCanvas, datos, titulo) {
-  const valores = datos.map(dato => parseFloat(dato.Value));
-
-  const ctx = document.getElementById(idCanvas).getContext('2d');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: datos.map(dato => dato.Bin),
-      datasets: [{
-        label: titulo,
-        data: valores,
-        backgroundColor: 'rgba(75, 192, 192, 0.8)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-}
-
-// Función para generar el gráfico de líneas
-function generarGraficoLineas(idCanvas, datos, titulo) {
-  const valores = datos.map(dato => parseInt(dato.Value));
-
-  const ctx = document.getElementById(idCanvas).getContext('2d');
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: datos.map(dato => dato.Date),
-      datasets: [{
-        label: titulo,
-        data: valores,
-        borderColor: 'rgba(75, 192, 192, 1)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderWidth: 1,
-        fill: true
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-}
-
-// Cargar los datos y generar los gráficos al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-  cargarDatosCSV('Distribución_de_E_1684697647701.csv')
-    .then(datos => generarHistograma('histogramaEChart', datos, 'Distribución de E'));
-
-  cargarDatosCSV('Distribución_de_Ro_1684697722157.csv')
-    .then(datos => generarHistograma('histogramaRoChart', datos, 'Distribución de Ro'));
-
-  cargarDatosCSV('Número_de_registros__1684697774089.csv')
-    .then(datos => generarGraficoLineas('graficoLineasChart', datos, 'Número de Registros'));
-});
