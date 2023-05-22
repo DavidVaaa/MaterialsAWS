@@ -11,7 +11,7 @@ document.getElementById("rangeForm").addEventListener("submit", function(event) 
     "Ro": [minRo, maxRo]
   };
   
-  fetch("https://2x7ii775pf.execute-api.us-east-1.amazonaws.com/dev", {
+  fetch("https://62so2ogeudyhhrhpupzcw7ai6i0ftsku.lambda-url.us-east-1.on.aws/", {
     method: "POST",
     body: JSON.stringify(request)
   })
