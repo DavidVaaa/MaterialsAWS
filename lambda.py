@@ -12,11 +12,11 @@ def lambda_handler(event, context):
     items = response['Items']
     df = pd.DataFrame(items)
     
-    # Obtener los rangos de E y Ro del evento
-    rango_min_E = event['E'][0]
-    rango_max_E = event['E'][1]
-    rango_min_Ro = event['Ro'][0]
-    rango_max_Ro = event['Ro'][1]
+    # Obtener los rangos de E y Ro de los parámetros de consulta
+    rango_min_E = str(event['queryStringParameters']['minE'])
+    rango_max_E = str(event['queryStringParameters']['maxE'])
+    rango_min_Ro = str(event['queryStringParameters']['minRo'])
+    rango_max_Ro = str(event['queryStringParameters']['maxRo'])
     
     # Aplicar filtros en función de los rangos
     materiales_seleccionados = df[(df['E'] >= rango_min_E) & (df['E'] <= rango_max_E) & (df['Ro'] >= rango_min_Ro) & (df['Ro'] <= rango_max_Ro)]
