@@ -1,7 +1,6 @@
 import json
 import boto3
 import pandas as pd
-import numpy as np
 
 def lambda_handler(event, context):
     dynamodb = boto3.resource('dynamodb')
@@ -18,7 +17,7 @@ def lambda_handler(event, context):
     rango_max_E = str(event['queryStringParameters']['maxE'])
     rango_min_Ro = str(event['queryStringParameters']['minRo'])
     rango_max_Ro = str(event['queryStringParameters']['maxRo'])
-    
+
     # Convertir columnas 'Sy' y 'A5' a valores numéricos
     df['Sy'] = pd.to_numeric(df['Sy'], errors='coerce')
     df['A5'] = pd.to_numeric(df['A5'], errors='coerce')
@@ -33,17 +32,23 @@ def lambda_handler(event, context):
         # Calcular la relación Sy/A5 y seleccionar los 5 con menor relación
         materiales_seleccionados['Sy/A5'] = materiales_seleccionados['Sy'] / materiales_seleccionados['A5']
         materiales_ordenados = materiales_seleccionados.sort_values('Sy/A5').head(5)
-        materiales_json = materiales_ordenados.to_dict(orient='records')
-        response_body = json.dumps(materiales_json)
+        
+        # Convertir los materiales seleccionados a una lista de diccionarios
+        materiales = materiales_ordenados.to_dict(orient='records')
+        
+        response_body = json.dumps(materiales)
         status_code = 200
     
     response = {
-        'statusCode': status_code,
+        'statusCode': 200,
         'body': response_body,
         'headers': {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'  # Permitir el acceso desde cualquier origen. Puedes ajustarlo según tus necesidades.
+            'Access-Control-Allow-Origin': '*',  # O especifica el origen permitido en lugar de '*'
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Methods': 'GET, POST'
         }
     }
+
     
     return response
